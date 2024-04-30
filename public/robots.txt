@@ -7,4 +7,4 @@ Allow: /
 User-agent: Mediapartners-Google
 Allow: /
 
-sitemap: https://arjasa.web.id/sitemap.xml
+sitemap: https://Ngapaea.web.id/sitemap.xml

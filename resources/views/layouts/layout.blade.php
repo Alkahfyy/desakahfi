@@ -29,7 +29,7 @@
 
     <!-- SEO Management-->
     <meta name="author" content="Maulana Kevin Pradana">
-    <meta name="keywords" content="desa arjasa,arjasa jember,arjasa,desa,desa.id,arjasa arjasa jember,desa di kecamatan arjasa jember,desa arjasa jember,daerah arjasa,website desa arjasa, web desa arjasa, website arjasa, web arjasa">
+    <meta name="keywords" content="desa Ngapaea,Ngapaea jember,Ngapaea,desa,desa.id,Ngapaea Ngapaea jember,desa di kecamatan Ngapaea jember,desa Ngapaea jember,daerah Ngapaea,website desa Ngapaea, web desa Ngapaea, website Ngapaea, web Ngapaea">
 
     <title>@yield('title')</title>
 

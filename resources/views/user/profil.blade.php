@@ -35,7 +35,7 @@ Profil Pengguna
                 <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
                         <a href="{{ asset(Storage::url(auth()->user()->foto_profil)) }}" data-fancybox>
-                            <img id="foto_profil" src="{{asset(Storage::url(auth()->user()->foto_profil))}}" alt="{{asset(Storage::url(auth()->user()->foto_profil))}}" class="rounded-circle" style="height: 150px; width: 150px; object-fit: cover">
+                            <img id="foto_profil" src="{{asset(Storage::url(auth()->user()->foto_profil))}}" alt="foto Profile" class="rounded-circle" style="height: 150px; width: 150px; object-fit: cover">
                         </a>
                     </div>
                 </div>
