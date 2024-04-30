@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'nama'              => 'Admin',
             'email'             => 'admin@gmail.com',
             'email_verified_at' => now(),
-            'password'          => bcrypt('asdqwe123'),
+            'password'          => bcrypt('admin'),
         ]);
     }
 }
