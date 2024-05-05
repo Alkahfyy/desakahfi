@@ -15,8 +15,6 @@ class CreateSejarahsTable extends Migration
     {
         Schema::create('sejarahs', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('gambar')->nullable();
             $table->text('konten');
             $table->softDeletes();
             $table->timestamps();

@@ -15,9 +15,8 @@ class CreateVisiMisisTable extends Migration
     {
         Schema::create('visi_misis', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('gambar')->nullable();
-            $table->text('konten');
+            $table->text('visi');
+            $table->text('misi');
             $table->softDeletes();
             $table->timestamps();
         });

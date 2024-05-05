@@ -128,6 +128,19 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link @if (Request::segment(1) == 'profil-desa') active @endif" href="{{ route('profil-desa') }}">
+                    <i class="fas fa-solid fa-book"></i>
+
+                    <span class="nav-link-inner--text">Visi Misi</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (Request::segment(1) == 'profil-desa') active @endif" href="{{ route('profil-desa') }}">
+                    <i class="fas fa-solid fa-landmark"></i>
+                    <span class="nav-link-inner--text">Sejarah Desa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (Request::segment(1) == 'profil-desa') active @endif" href="{{ route('profil-desa') }}">
                     <i class="fas fa-users text-info"></i>
                     <span class="nav-link-inner--text">Profil Desa</span>
                 </a>
@@ -138,7 +151,7 @@
                     <span class="nav-link-inner--text">Profil Saya</span>
                 </a>
             </li>
-        </ul>
+        </ul>   
         <hr class="my-3">
         <ul class="navbar-nav">
             <li class="nav-item">
