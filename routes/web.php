@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home.index');
 
+Route::get('/sejarah', 'SejarahController@sejarahShow')->name('sejarah');
+Route::get('/visi-misi', 'VisiMisiController@visiMisiShow')->name('visi-misi');
+
 Route::get('/laporan-apbdes', 'AnggaranRealisasiController@laporan_apbdes')->name('laporan-apbdes');
 Route::get('/layanan-surat', 'SuratController@layanan_surat')->name('layanan-surat');
 Route::get('/pemerintahan-desa', 'PemerintahanDesaController@pemerintahan_desa')->name('pemerintahan-desa');
@@ -93,6 +96,16 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('detailDusun', 'DetailDusunController')->except('create','edit');
 
     Route::get('/chart-surat/{id}', 'SuratController@chartSurat')->name('chart-surat');
+
+
+    // visi misi
+    Route::get('/visi-misi-desa', 'VisiMisiController@index')->name('index-visimisi');
+    Route::patch('/update-visi-misi/{visiMisi}', 'VisiMisiController@update')->name('update-visimisi');
+
+    // Sejarah
+    Route::get('/sejarah-desa', 'SejarahController@index')->name('index-sejarah');
+    Route::patch('/update-sejarah-desa/{sejarah}', 'SejarahController@update')->name('update-sejarah');
+
 });
 
 Route::fallback(function () {

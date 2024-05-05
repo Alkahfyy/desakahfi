@@ -17,7 +17,7 @@
 @endsection
 
 @section('header')
-<h1 class="text-white text-muted">PANDUAN PENGGUNAAN APLIKASI SIMAPEDA</h1>
+<h1 class="text-white text-muted">PANDUAN PENGGUNAAN APLIKASI SISDES</h1>
 @endsection
 
 @section('content')

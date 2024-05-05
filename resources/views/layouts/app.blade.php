@@ -116,8 +116,8 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-right text-muted">
-                            Powered By <a href="https://github.com/maulanakevinp/simapeda/tree/1.2" class="font-weight-bold ml-1"
-                                target="_blank">SIMAPEDA</a>
+                            Powered By <a href="/" class="font-weight-bold ml-1"
+                                target="_blank">SISDES</a>
                         </div>
                     </div>
                 </div>
