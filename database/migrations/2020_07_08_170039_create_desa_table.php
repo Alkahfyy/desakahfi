@@ -15,13 +15,13 @@ class CreateDesaTable extends Migration
     {
         Schema::create('desa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_desa', 64);
-            $table->string('nama_kecamatan', 64);
-            $table->string('nama_kabupaten', 64);
-            $table->string('alamat', 191);
-            $table->string('nama_kepala_desa', 64);
-            $table->string('alamat_kepala_desa', 64);
-            $table->string('logo', 64);
+            $table->string('nama_desa');
+            $table->string('nama_kecamatan');
+            $table->string('nama_kabupaten');
+            $table->text('alamat');
+            $table->string('nama_kepala_desa');
+            $table->string('alamat_kepala_desa');
+            $table->string('logo');
             $table->timestamps();
         });
     }
