@@ -27,4 +27,11 @@ class SejarahController extends Controller
             return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');
         }
     }
+
+    public function sejarahShow(Request $request)
+    {
+        $sejarah = Sejarah::find(1);
+
+        return view('sejarah.show', compact('sejarah'));
+    }
 }

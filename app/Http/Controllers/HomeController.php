@@ -7,8 +7,10 @@ use App\Desa;
 use App\Gallery;
 use App\PemerintahanDesa;
 use App\Penduduk;
+use App\Sejarah;
 use App\Surat;
 use App\Video;
+use App\VisiMisi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,6 +24,8 @@ class HomeController extends Controller
         $gallery = Gallery::where('slider', 1)->latest()->get();
         $galleries = array();
         $videos = Video::all();
+        $visiMisi = VisiMisi::first();
+        $sejarah = Sejarah::first();
 
         foreach (Gallery::where('slider', null)->get() as $key => $value) {
             $gambar = [
@@ -49,7 +53,7 @@ class HomeController extends Controller
             return strlen($a['created_at']) <=> strlen($b['created_at']);
         });
 
-        return view('index', compact('surat', 'desa', 'gallery','berita','pemerintahan_desa','galleries'));
+        return view('index', compact('visiMisi','sejarah','surat', 'desa', 'gallery','berita','pemerintahan_desa','galleries'));
     }
     
     public function dashboard()

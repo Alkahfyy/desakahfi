@@ -31,4 +31,12 @@ class VisiMisiController extends Controller
             return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');
         }
     }
+
+
+    public function visiMisiShow(Request $request)
+    {
+        $visiMisi = VisiMisi::find(1);
+
+        return view('visi-misi.show', compact('visiMisi'));
+    }
 }

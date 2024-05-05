@@ -93,6 +93,16 @@
                                 <i class="fas fa-bars"></i> <span class="nav-link-inner--text">Menu Utama</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right py-0 overflow-hidden">
+
+                                <a class="dropdown-item @if (Request::segment(1) == 'visi-misi') active @endif" href="{{ route('visi-misi') }}">
+                                    <i class="fas fa-fw fa-file-alt text-yellow"></i>
+                                    <span class="nav-link-inner--text">Visi Misi Desa</span>
+                                </a>
+                                <a class="dropdown-item @if (Request::segment(1) == 'sejarah') active @endif" href="{{ route('sejarah') }}">
+                                    <i class="fas fa-fw fa-atlas text-success"></i>
+                                    <span class="nav-link-inner--text">Sejarah Desa</span>
+                                </a>
+
                                 <a class="dropdown-item @if (Request::segment(1) == 'layanan-surat') active @endif" href="{{ route('layanan-surat') }}">
                                     <i class="fas fa-fw fa-file-alt text-yellow"></i>
                                     <span class="nav-link-inner--text">Layanan Surat</span>
@@ -200,13 +210,13 @@
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-left text-muted">
                             © {{ date('Y') }} <a href="{{ url('') }}" class="font-weight-bold ml-1"
-                                target="_blank">Desa {{ $desa->nama_desa }}</a>
+                                >Desa {{ $desa->nama_desa }}</a>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-right text-muted">
-                            Powered By <a href="https://github.com/maulanakevinp/simapeda/tree/1.2" class="font-weight-bold ml-1"
-                                target="_blank">SIMAPEDA</a>
+                            Powered By <a href="/" class="font-weight-bold ml-1"
+                                target="_blank">SISDES</a>
                         </div>
                     </div>
                 </div>
