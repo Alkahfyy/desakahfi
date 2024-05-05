@@ -96,12 +96,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 
     // visi misi
-    Route::get('/visi-misi-desa', 'VisiMisiController@index')->name('index-visiMisi');
-    Route::patch('/update-visi-misi/{visiMisi}', 'VisiMisiController@update')->name('update-visiMisi');
+    Route::get('/visi-misi-desa', 'VisiMisiController@index')->name('index-visimisi');
+    Route::patch('/update-visi-misi/{visiMisi}', 'VisiMisiController@update')->name('update-visimisi');
 
     // Sejarah
-    Route::get('/sejarah-desa', 'VisiMisiController@index')->name('index-sejarah');
-    Route::patch('/update-sejarah-desa/{sejarah}', 'VisiMisiController@update')->name('update-sejarah');
+    Route::get('/sejarah-desa', 'SejarahController@index')->name('index-sejarah');
+    Route::patch('/update-sejarah-desa/{sejarah}', 'SejarahController@update')->name('update-sejarah');
 
 });
 

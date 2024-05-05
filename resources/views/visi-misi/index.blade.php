@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('title')
-    Profil Desa
+    Visi Misi Desa
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        .ikon {
+            font-family: fontAwesome;
+        }
+    </style>
 @endsection
 
 @section('content-header')
@@ -28,7 +34,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xl-8 order-xl-1">
+        <div class="col-12 order-xl-1">
             <div class="card bg-secondary shadow">
                 <div class="card-header bg-white border-0">
                     <div class="row align-items-center">
@@ -39,12 +45,12 @@
                 </div>
                 <div class="card-body">
                     @include('layouts.components.alert')
-                    <form action="{{ url('update-visimisi', $visiMisi) }}" method="POST">
-                        @csrf @method('patch')
+                    <form action="{{ route('update-visimisi', $visiMisi) }}" method="POST">
+                        @csrf 
+                        @method('patch')
                         <div class="form-group">
-                            <label class="form-control-label" for="visi">Visi</label>
                             <div class="form-group">
-                                <label class="form-control-label">visi</label>
+                                <label class="form-control-label">Visi</label>
                                 <textarea class="form-control @error('visi') is-invalid @enderror" name="visi">{{ old('visi', $visiMisi->visi) }}</textarea>
                                 @error('visi')
                                     <span class="invalid-feedback font-weight-bold">{{ $message }}</span>
@@ -57,9 +63,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label" for="misi">misi</label>
                             <div class="form-group">
-                                <label class="form-control-label">misi</label>
+                                <label class="form-control-label">Misi</label>
                                 <textarea class="form-control @error('misi') is-invalid @enderror" name="misi">{{ old('misi', $visiMisi->misi) }}</textarea>
                                 @error('misi')
                                     <span class="invalid-feedback font-weight-bold">{{ $message }}</span>
@@ -83,22 +88,7 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
     <script>
-        function uploadImage(inputFile) {
-            if (inputFile.files && inputFile.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $(inputFile).siblings('img').attr("src", e.target.result);
-                }
-                reader.readAsDataURL(inputFile.files[0]);
-            }
-        }
         $(document).ready(function() {
-            $(document).on("submit", "form", function() {
-                $(this).children("button:submit").attr('disabled', 'disabled');
-                $(this).children("button:submit").html(
-                    `<img height="20px" src="{{ url('/storage/loading.gif') }}" alt=""> Loading ...`);
-            });
-
             $("textarea").summernote({
                 dialogsInBody: true,
                 placeholder: 'Silahkan isi konten',

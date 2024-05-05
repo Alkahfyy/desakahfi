@@ -9,8 +9,8 @@ class SejarahController extends Controller
 {
     public function index()
     {
-        $visiMisi = Sejarah::find(1);
-        return view('sejarah.index', compact('Sejarah'));
+        $sejarah = Sejarah::find(1);
+        return view('sejarah.index', compact('sejarah'));
     }
 
     public function update(Request $request, Sejarah $sejarah)
@@ -20,8 +20,8 @@ class SejarahController extends Controller
             'konten' => ['nullable', 'string'],
         ]);
 
-        if ($request->visi != $sejarah->visi  || $request->misi != $sejarah->misi) {
-            $sejarah->update($data);
+        $sejarah->update($data);
+        if ( $sejarah->update($data)) {
             return redirect()->back()->with('success', 'visi misi desa berhasil di perbarui');
         } else {
             return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');

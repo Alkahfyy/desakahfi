@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class VisiMisiController extends Controller
 {
- 
+
     public function index()
     {
         $visiMisi = VisiMisi::find(1);
@@ -25,8 +25,7 @@ class VisiMisiController extends Controller
 
         ]);
 
-        if ($request->nama_desa != $visiMisi->nama_desa  || $request->nama_kecamatan != $visiMisi->nama_kecamatan) {
-            $visiMisi->update($data);
+        if ($visiMisi->update($data)) {
             return redirect()->back()->with('success', 'visi misi desa berhasil di perbarui');
         } else {
             return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');

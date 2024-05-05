@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
-@section('title')
-    Profil Desa
-@endsection
+@section('title', 'Sejarah Desa')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+    .ikon {
+        font-family: fontAwesome;
+    }
+</style>
 @endsection
 
 @section('content-header')
@@ -28,7 +32,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xl-8 order-xl-1">
+        <div class="col-12 order-xl-1">
             <div class="card bg-secondary shadow">
                 <div class="card-header bg-white border-0">
                     <div class="row align-items-center">
@@ -39,12 +43,13 @@
                 </div>
                 <div class="card-body">
                     @include('layouts.components.alert')
-                    <form action="{{ url('update-visimisi', $visiMisi) }}" method="POST">
-                        @csrf @method('patch')
+                    <form action="{{ route('update-sejarah', $sejarah) }}" method="POST">
+                        @csrf 
+                        @method('patch')
                         <div class="form-group">
                             <label class="form-control-label" for="konten">Sejarah</label>
                             <div class="form-group">
-                                <textarea class="form-control @error('konten') is-invalid @enderror" name="konten">{{ old('konten', $kontenMisi->konten) }}</textarea>
+                                <textarea class="form-control @error('konten') is-invalid @enderror" name="konten">{{ old('konten', $sejarah->konten) }}</textarea>
                                 @error('konten')
                                     <span class="invalid-feedback font-weight-bold">{{ $message }}</span>
                                 @enderror
