@@ -127,14 +127,14 @@
         <hr class="my-3">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link @if (Request::segment(1) == 'profil-desa') active @endif" href="{{ route('profil-desa') }}">
+                <a class="nav-link @if (Request::segment(1) == 'visi-misi-desa') active @endif" href="{{ route('index-visimisi') }}">
                     <i class="fas fa-solid fa-book"></i>
 
                     <span class="nav-link-inner--text">Visi Misi</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if (Request::segment(1) == 'profil-desa') active @endif" href="{{ route('profil-desa') }}">
+                <a class="nav-link @if (Request::segment(1) == 'sejarah-desa') active @endif" href="{{ route('index-sejarah') }}">
                     <i class="fas fa-solid fa-landmark"></i>
                     <span class="nav-link-inner--text">Sejarah Desa</span>
                 </a>

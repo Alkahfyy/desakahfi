@@ -9,65 +9,27 @@ use Illuminate\Support\Facades\Validator;
 
 class VisiMisiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
-        $desa = VisiMisi::find(1);
-        return view('desa.index', compact('desa'));
+        $visiMisi = VisiMisi::find(1);
+        return view('visi-misi.index', compact('visiMisi'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Desa  $desa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, VisiMisi $desa)
+    public function update(Request $request, VisiMisi $visiMisi)
     {
-        if (request()->ajax()) {
-            $validator = Validator::make($request->all(), [
-                'logo'   => ['required', 'image', 'max:2048']
-            ]);
 
-            if ($validator->fails()) {
-                return response()->json([
-                    'error'     => true,
-                    'message'   => $validator->errors()->all()
-                ]);
-            }
+        $data = $request->validate([
+            'visi' => ['nullable', 'string'],
+            'misi' => ['nullable', 'string'],
 
-            if ($desa->logo != 'logo.png') {
-                File::delete(storage_path('app/' . $desa->logo));
-            }
+        ]);
 
-            $desa->logo = $request->file('logo')->store('public/logo');
-            $desa->save();
-
-            return response()->json([
-                'error'     => false,
-                'data'      => ['logo'   => $desa->logo]
-            ]);
+        if ($request->nama_desa != $visiMisi->nama_desa  || $request->nama_kecamatan != $visiMisi->nama_kecamatan) {
+            $visiMisi->update($data);
+            return redirect()->back()->with('success', 'visi misi desa berhasil di perbarui');
         } else {
-            $data = $request->validate([
-                'nama_desa'             => ['required', 'max:64', 'string'],
-                'nama_kecamatan'        => ['required', 'max:64', 'string'],
-                'nama_kabupaten'        => ['required', 'max:64', 'string'],
-                'alamat'                => ['required', 'string'],
-                'nama_kepala_desa'      => ['required', 'max:64', 'string'],
-                'alamat_kepala_desa'    => ['required', 'string']
-            ]);
-
-            if ($request->nama_desa != $desa->nama_desa  || $request->nama_kecamatan != $desa->nama_kecamatan || $request->nama_kabupaten != $desa->nama_kabupaten || $request->alamat != $desa->alamat || $request->nama_kepala_desa != $desa->nama_kepala_desa || $request->alamat_kepala_desa != $desa->alamat_kepala_desa) {
-                $desa->update($data);
-                return redirect()->back()->with('success', 'Profil desa berhasil di perbarui');
-            } else {
-                return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');
-            }
+            return redirect()->back()->with('error', 'Tidak ada perubahan yang berhasil disimpan');
         }
     }
 }

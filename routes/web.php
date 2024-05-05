@@ -93,6 +93,16 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('detailDusun', 'DetailDusunController')->except('create','edit');
 
     Route::get('/chart-surat/{id}', 'SuratController@chartSurat')->name('chart-surat');
+
+
+    // visi misi
+    Route::get('/visi-misi-desa', 'VisiMisiController@index')->name('index-visiMisi');
+    Route::patch('/update-visi-misi/{visiMisi}', 'VisiMisiController@update')->name('update-visiMisi');
+
+    // Sejarah
+    Route::get('/sejarah-desa', 'VisiMisiController@index')->name('index-sejarah');
+    Route::patch('/update-sejarah-desa/{sejarah}', 'VisiMisiController@update')->name('update-sejarah');
+
 });
 
 Route::fallback(function () {
